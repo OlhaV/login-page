@@ -1,0 +1,15 @@
+@import "../../../styles.scss";
+
+.angular-material-container {
+  @include flex-column-centered;
+  margin-top: 6vh;
+  margin-bottom: 6vh;
+
+  .mat-form-field {
+    width: 49vh !important;
+  }
+
+  textarea {
+    height: 16vh !important;
+  }
+}
