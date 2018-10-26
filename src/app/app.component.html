@@ -1,0 +1,31 @@
+<div class="header"
+     *ngIf="userLoggedIn"
+>
+  <a [routerLink]="['']"
+     [routerLinkActive]="['active-link']"
+     [routerLinkActiveOptions]="{exact: true}"
+  >
+    Home
+  </a>
+  <a [routerLink]="['about']"
+     [routerLinkActive]="['active-link']"
+  >
+    About
+  </a>
+  <div>
+    <router-outlet></router-outlet>
+  </div>
+</div>
+
+
+<div class="container-fluid"
+     *ngIf="!userLoggedIn"
+>
+  <div class="row">
+    <div class="col-xs-12  col-lg-6 offset-lg-3">
+      <app-material-login></app-material-login>
+    </div>
+  </div>
+</div>
+
+

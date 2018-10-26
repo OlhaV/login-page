@@ -1,0 +1,31 @@
+<p-growl [(value)]="msgs"></p-growl>
+
+<div class="primeng-container">
+  <h1>Prime NG sample</h1>
+  <strong><label>Please enter user data</label></strong>
+
+
+  <span class="ui-float-label">
+            <input class="float-input" type="text" size="30" pInputText>
+              <label for="float-input">Username</label>
+          </span>
+
+
+  <span class="ui-float-label">
+          <input class="float-input" type="password" size="30" pPassword/>
+          <label>Enter password:</label>
+        </span>
+
+
+  <label id="account-type-label">Select account type:</label>
+
+  <div class="flex-column">
+    <p-radioButton name="groupname" value="val1" label="Public"></p-radioButton>
+    <p-radioButton name="groupname" value="val1" label="Private"></p-radioButton>
+  </div>
+
+  <label>Your hobby description</label>
+  <textarea pInputTextarea rows="5" cols="40"></textarea>
+
+  <button pButton type="button" label="Click" (click)="successPrimeNg()"></button>
+</div>
