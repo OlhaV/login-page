@@ -9,15 +9,23 @@ import {SnackbarMessageComponent} from './components/snackbar-message/snackbar-m
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {ButtonModule, GrowlModule, InputTextareaModule, InputTextModule, PasswordModule, RadioButtonModule} from 'primeng/primeng';
 import {MatButtonModule, MatInputModule, MatRadioModule, MatSnackBarModule} from '@angular/material';
+import { AboutComponent } from './components/about/about.component';
+import { HomeComponent } from './components/home/home.component';
+import {AppRoutingModule} from "./app.routing";
+import { UnsuccessfulRegistrationComponent } from './components/unsuccessful-registration/unsuccessful-registration.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MaterialLoginComponent,
     PrimengLoginComponent,
-    SnackbarMessageComponent
+    SnackbarMessageComponent,
+    AboutComponent,
+    HomeComponent,
+    UnsuccessfulRegistrationComponent
   ],
   imports: [
+    AppRoutingModule,
     BrowserModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
