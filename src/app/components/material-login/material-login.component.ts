@@ -45,7 +45,7 @@ export class MaterialLoginComponent {
     });
   }
 
-  public authorizationCheck(): void {
+  public authorizationClick(): void {
     if (this.loginPasswordCheck()) {
       this.authService.loginSuccessfulEvent();
     } else {
