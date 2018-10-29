@@ -25,12 +25,13 @@
 
 
 <div class="container-fluid"
-     *ngIf="!authorizationSuccessful"
+     *ngIf="!authorizationSuccessful && !forgotPassword"
 >
   <div class="row">
     <div class="col-xs-12  col-lg-6 offset-lg-3">
       <app-material-login
         (authorizationClick)="redirect($event)"
+        (forgotPasswordClick)="redirectToForgotPassword()"
       ></app-material-login>
     </div>
   </div>

@@ -9,7 +9,8 @@ import {Router} from "@angular/router";
 export class AppComponent {
 
   public title = 'css-frameworks';
-  public authorizationSuccessful: boolean;
+  public authorizationSuccessful: boolean = false;
+  public forgotPassword: boolean = false;
 
   constructor(private router: Router) {
 
@@ -19,6 +20,11 @@ export class AppComponent {
     this.authorizationSuccessful = !!userLoggedIn;
     let path = userLoggedIn ? '' : 'unsuccessful';
     this.router.navigate([path]);
+  }
+
+  public redirectToForgotPassword(): void {
+    this.forgotPassword = true;
+    this.router.navigate(['forgot-password']);
   }
 
 }

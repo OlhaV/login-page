@@ -13,6 +13,7 @@ import { AboutComponent } from './components/about/about.component';
 import { HomeComponent } from './components/home/home.component';
 import {AppRoutingModule} from "./app.routing";
 import { UnsuccessfulRegistrationComponent } from './components/unsuccessful-registration/unsuccessful-registration.component';
+import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { UnsuccessfulRegistrationComponent } from './components/unsuccessful-reg
     SnackbarMessageComponent,
     AboutComponent,
     HomeComponent,
-    UnsuccessfulRegistrationComponent
+    UnsuccessfulRegistrationComponent,
+    ForgotPasswordComponent
   ],
   imports: [
     AppRoutingModule,

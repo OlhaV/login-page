@@ -1,5 +1,4 @@
 import {Component, ViewChild, EventEmitter, Output, ElementRef} from '@angular/core';
-import {FormControl, Validators} from '@angular/forms';
 import {MatSnackBar} from '@angular/material';
 import {SnackbarMessageComponent} from '../snackbar-message/snackbar-message.component';
 import {UserModel} from "../../models/user-model";
@@ -14,15 +13,11 @@ export class MaterialLoginComponent {
   @ViewChild('username') username: ElementRef;
   @ViewChild('password') password: ElementRef;
 
-  @Output() authorizationClick = new EventEmitter<boolean>();
+  @Output() authorizationClick = new EventEmitter<UserModel>();
+  @Output() forgotPasswordClick = new EventEmitter<boolean>();
 
   private users: UserModel[];
-
-  public readonly EMAIL_REGEX = /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-
-  public emailFormControl = new FormControl('', [
-    Validators.required,
-    Validators.pattern(this.EMAIL_REGEX)]);
+  public forgotPassword: boolean;
 
   constructor(public snackBar: MatSnackBar) {
     this.initUsers();
@@ -50,4 +45,8 @@ export class MaterialLoginComponent {
     this.authorizationClick.emit(found);
   }
 
+  public forgotPasswordRedirect(): void {
+    this.forgotPassword = true;
+    this.forgotPasswordClick.emit(this.forgotPassword);
+  }
 }

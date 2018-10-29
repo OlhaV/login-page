@@ -1,18 +1,42 @@
 <div class="angular-material-container">
   <h1>Angular Material</h1>
-  <strong><label>Please enter user data</label></strong>
+  <strong>
+    <label>
+      Please enter user data
+    </label>
+  </strong>
 
   <mat-form-field>
-    <input matInput #username maxlength="100" placeholder="Username">
-    <mat-hint align="end">{{username.value.length}} / 100</mat-hint>
+    <input matInput
+           #username
+           maxlength="100"
+           placeholder="Username"
+    >
+    <mat-hint align="end">
+      {{username.value.length}} / 100
+    </mat-hint>
+
     <mat-error>This field is required</mat-error>
   </mat-form-field>
 
   <mat-form-field>
-    <input matInput #password maxlength="12" placeholder="Password" type="password">
-    <mat-hint align="end">{{password.value.length}} / 12</mat-hint>
+    <input matInput
+           #password
+           maxlength="12"
+           placeholder="Password"
+           type="password"
+    >
+    <mat-hint align="end">
+      {{password.value.length}} / 12
+    </mat-hint>
     <mat-error>This field is required</mat-error>
   </mat-form-field>
+
+  <a [routerLink]="['forgot-password']"
+     (click)="forgotPasswordRedirect()"
+  >
+    Forgot password?
+  </a>
 
   <label>Select account type:</label>
 
@@ -21,25 +45,10 @@
     <mat-radio-button value="2">Private</mat-radio-button>
   </mat-radio-group>
 
-  <label>Your hobby description</label>
-  <mat-form-field>
-    <textarea matInput #password maxlength="400" type="text"></textarea>
-    <mat-hint align="end">{{password.value.length}} / 400</mat-hint>
-  </mat-form-field>
-
-  <form>
-    <mat-form-field class="example-full-width">
-      <input matInput placeholder="Email" [formControl]="emailFormControl">
-      <mat-error *ngIf="emailFormControl.hasError('pattern') && !emailFormControl.hasError('required')">
-        Please enter a valid email address
-      </mat-error>
-      <mat-error *ngIf="emailFormControl.hasError('required')">
-        Email is <strong>required</strong>
-      </mat-error>
-    </mat-form-field>
-  </form>
-
-  <button mat-raised-button color="primary" (click)="authorizationCheck()">
+  <button mat-raised-button
+          color="primary"
+          (click)="authorizationCheck()"
+  >
     Click
   </button>
 </div>
