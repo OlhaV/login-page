@@ -1,5 +1,5 @@
 <div class="header"
-     *ngIf="userLoggedIn"
+     *ngIf="authorizationSuccessful"
 >
   <a [routerLink]="['']"
      [routerLinkActive]="['active-link']"
@@ -12,6 +12,12 @@
   >
     About
   </a>
+  <a [routerLink]="['logout']"
+     [routerLinkActive]="['active-link']"
+     (click)="authorizationSuccessful = false"
+  >
+    Logout
+  </a>
   <div>
     <router-outlet></router-outlet>
   </div>
@@ -19,11 +25,13 @@
 
 
 <div class="container-fluid"
-     *ngIf="!userLoggedIn"
+     *ngIf="!authorizationSuccessful"
 >
   <div class="row">
     <div class="col-xs-12  col-lg-6 offset-lg-3">
-      <app-material-login></app-material-login>
+      <app-material-login
+        (authorizationClick)="redirect($event)"
+      ></app-material-login>
     </div>
   </div>
 </div>

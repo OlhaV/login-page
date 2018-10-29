@@ -1,9 +1,8 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, ViewChild, EventEmitter, Output, ElementRef} from '@angular/core';
 import {FormControl, Validators} from '@angular/forms';
 import {MatSnackBar} from '@angular/material';
 import {SnackbarMessageComponent} from '../snackbar-message/snackbar-message.component';
 import {UserModel} from "../../models/user-model";
-import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-material-login',
@@ -12,8 +11,10 @@ import {Router} from "@angular/router";
 })
 export class MaterialLoginComponent {
 
-  @ViewChild('username') username;
-  @ViewChild('password') password;
+  @ViewChild('username') username: ElementRef;
+  @ViewChild('password') password: ElementRef;
+
+  @Output() authorizationClick = new EventEmitter<boolean>();
 
   private users: UserModel[];
 
@@ -23,8 +24,7 @@ export class MaterialLoginComponent {
     Validators.required,
     Validators.pattern(this.EMAIL_REGEX)]);
 
-  constructor(public snackBar: MatSnackBar,
-              private router: Router) {
+  constructor(public snackBar: MatSnackBar) {
     this.initUsers();
   }
 
@@ -36,22 +36,18 @@ export class MaterialLoginComponent {
     ]
   }
 
-  public openSnackBar() {
+  public openSnackBar(): void {
     this.snackBar.openFromComponent(SnackbarMessageComponent, {
       duration: 1000,
     });
-  }
-
-  private redirect(path: any[]) {
-    console.log(path)
-    this.router.navigate(path);
   }
 
   public authorizationCheck(): void {
     let found = this.users.find((user) => {
       return user.login === this.username.nativeElement.value && user.password === this.password.nativeElement.value
     });
-    found ? this.redirect(['']) : this.redirect(['unsuccessful']);
+    !found && this.openSnackBar();
+    this.authorizationClick.emit(found);
   }
 
 }

@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-root',
@@ -8,6 +9,16 @@ import { Component } from '@angular/core';
 export class AppComponent {
 
   public title = 'css-frameworks';
-  public registrationSuccessful: boolean;
+  public authorizationSuccessful: boolean;
+
+  constructor(private router: Router) {
+
+  }
+
+  public redirect(userLoggedIn: boolean): void {
+    this.authorizationSuccessful = !!userLoggedIn;
+    let path = userLoggedIn ? '' : 'unsuccessful';
+    this.router.navigate([path]);
+  }
 
 }
