@@ -2,6 +2,8 @@ import {Component, ViewChild, EventEmitter, Output, ElementRef} from '@angular/c
 import {MatSnackBar} from '@angular/material';
 import {SnackbarMessageComponent} from '../snackbar-message/snackbar-message.component';
 import {UserModel} from "../../models/user-model";
+import {AuthorizationService} from "../../services/authorization.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-material-login',
@@ -13,17 +15,17 @@ export class MaterialLoginComponent {
   @ViewChild('username') username: ElementRef;
   @ViewChild('password') password: ElementRef;
 
-  @Output() authorizationClick = new EventEmitter<UserModel>();
-  @Output() forgotPasswordClick = new EventEmitter<boolean>();
+  @Output() forgotPasswordEvent = new EventEmitter();
 
   private users: UserModel[];
-  public forgotPassword: boolean;
 
-  constructor(public snackBar: MatSnackBar) {
+  constructor(public snackBar: MatSnackBar,
+              private authService: AuthorizationService,
+              private router: Router) {
     this.initUsers();
   }
 
-  private initUsers() {
+  private initUsers(): void {
     this.users = [
       { login: 'olga', password: 'olga' },
       { login: 'gena', password: 'gena' },
@@ -37,16 +39,23 @@ export class MaterialLoginComponent {
     });
   }
 
-  public authorizationCheck(): void {
-    let found = this.users.find((user) => {
+  private loginPasswordCheck(): UserModel {
+    return this.users.find((user) => {
       return user.login === this.username.nativeElement.value && user.password === this.password.nativeElement.value
     });
-    !found && this.openSnackBar();
-    this.authorizationClick.emit(found);
   }
 
-  public forgotPasswordRedirect(): void {
-    this.forgotPassword = true;
-    this.forgotPasswordClick.emit(this.forgotPassword);
+  public authorizationCheck(): void {
+    if (this.loginPasswordCheck()) {
+      this.authService.loginSuccessfulEvent();
+    } else {
+      this.openSnackBar();
+      this.authService.loginUnsuccessfulEvent();
+    }
+  }
+
+  public forgotPasswordClick(): void {
+    this.router.navigate(['forgot-password']);
+    this.forgotPasswordEvent.emit();
   }
 }

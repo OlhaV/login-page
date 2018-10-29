@@ -1,5 +1,5 @@
 <div class="header"
-     *ngIf="authorizationSuccessful"
+     *ngIf="userAuthorized"
 >
   <a [routerLink]="['']"
      [routerLinkActive]="['active-link']"
@@ -14,7 +14,7 @@
   </a>
   <a [routerLink]="['logout']"
      [routerLinkActive]="['active-link']"
-     (click)="authorizationSuccessful = false"
+     (click)="userAuthorized = false"
   >
     Logout
   </a>
@@ -25,13 +25,12 @@
 
 
 <div class="container-fluid"
-     *ngIf="!authorizationSuccessful && !forgotPassword"
+     *ngIf="!userAuthorized && !forgotPassword"
 >
   <div class="row">
     <div class="col-xs-12  col-lg-6 offset-lg-3">
       <app-material-login
-        (authorizationClick)="redirect($event)"
-        (forgotPasswordClick)="redirectToForgotPassword()"
+        (forgotPasswordEvent)="forgotPassword = true"
       ></app-material-login>
     </div>
   </div>
