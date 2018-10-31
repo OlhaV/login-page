@@ -1,0 +1,11 @@
+.sub-navbar {
+  display: flex;
+
+  &-link {
+    margin-right: 10px;
+  }
+}
+
+.active-user-link {
+  color: red;
+}

@@ -1,3 +1,12 @@
 <div>
   <div> Home page </div>
+  <div> Please enter order id: </div>
+  <input [(ngModel)]="orderId">
+
+  <button (click)="navigateToOrder()">
+    Navigate to order with id
+  </button>
+  <button (click)="navigateToAbout()">
+    Navigate to about page
+  </button>
 </div>

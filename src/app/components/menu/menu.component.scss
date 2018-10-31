@@ -1,0 +1,9 @@
+.active-link {
+  color: red;
+}
+
+.menu {
+  &-link {
+    margin-right: 10px;
+  }
+}

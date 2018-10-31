@@ -1,39 +1,27 @@
-<div class="header"
-     *ngIf="userAuthorized"
->
-  <a [routerLink]="['']"
-     [routerLinkActive]="['active-link']"
-     [routerLinkActiveOptions]="{exact: true}"
-  >
-    Home
-  </a>
-  <a [routerLink]="['about']"
-     [routerLinkActive]="['active-link']"
-  >
-    About
-  </a>
-  <a [routerLink]="['logout']"
-     [routerLinkActive]="['active-link']"
-     (click)="userAuthorized = false"
-  >
-    Logout
-  </a>
-  <div>
+<app-menu [authorized]="userAuthorized"></app-menu>
+
+<div>
     <router-outlet></router-outlet>
   </div>
-</div>
 
-
-<div class="container-fluid"
-     *ngIf="!userAuthorized && !forgotPassword"
+<div *ngIf="forgotPassword"
+     class="row"
 >
-  <div class="row">
-    <div class="col-xs-12  col-lg-6 offset-lg-3">
-      <app-material-login
-        (forgotPasswordEvent)="forgotPassword = true"
-      ></app-material-login>
-    </div>
+  <div class="col-xs-12  col-lg-6 offset-lg-3">
+    <app-forgot-password></app-forgot-password>
   </div>
 </div>
+
+<!--<div class="container-fluid"-->
+     <!--*ngIf="!userAuthorized && !forgotPassword"-->
+<!--&gt;-->
+  <!--<div class="row">-->
+    <!--<div class="col-xs-12  col-lg-6 offset-lg-3">-->
+      <!--<app-material-login-->
+        <!--(forgotPasswordEvent)="forgotPassword = true"-->
+      <!--&gt;</app-material-login>-->
+    <!--</div>-->
+  <!--</div>-->
+<!--</div>-->
 
 

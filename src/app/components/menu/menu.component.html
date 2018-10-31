@@ -1,0 +1,36 @@
+<div class="menu"
+>
+  <a [routerLink]="['']"
+     [routerLinkActive]="['active-link']"
+     [routerLinkActiveOptions]="{exact: true}"
+     class="menu-link"
+  >
+    Home
+  </a>
+  <a [routerLink]="['about']"
+     [routerLinkActive]="['active-link']"
+     [queryParams]="{'second' : 100}"
+     class="menu-link"
+  >
+    About
+  </a>
+  <a [routerLink]="['order-data']"
+     [routerLinkActive]="['active-link']"
+     class="menu-link"
+  >
+    Order-Data
+  </a>
+  <a [routerLink]="['user', '12']"
+     [routerLinkActive]="['active-link']"
+     class="menu-link"
+  >
+    User
+  </a>
+  <a [routerLink]="['logout']"
+     [routerLinkActive]="['active-link']"
+     (click)="authorized = false"
+     class="menu-link"
+  >
+    Logout
+  </a>
+</div>
