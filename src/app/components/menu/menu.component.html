@@ -28,7 +28,7 @@
   </a>
   <a [routerLink]="['logout']"
      [routerLinkActive]="['active-link']"
-     (click)="authorized = false"
+     (click)="logoutClick.emit()"
      class="menu-link"
   >
     Logout

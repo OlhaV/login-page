@@ -1,27 +1,33 @@
-<app-menu [authorized]="userAuthorized"></app-menu>
+<app-menu *ngIf="userAuthorized"
+          (logoutClick)="userAuthorized = false"
+></app-menu>
 
-<div>
-    <router-outlet></router-outlet>
+<div *ngIf="userAuthorized">
+  <router-outlet></router-outlet>
+</div>
+
+
+<div class="container-fluid"
+     *ngIf="!userAuthorized"
+>
+  <div class="row"
+       *ngIf="!forgotPassword"
+  >
+    <div class="col-xs-12  col-lg-6 offset-lg-3">
+      <app-material-login
+        (forgotPasswordEvent)="forgotPassword = true"
+      ></app-material-login>
+    </div>
   </div>
 
-<div *ngIf="forgotPassword"
-     class="row"
->
-  <div class="col-xs-12  col-lg-6 offset-lg-3">
-    <app-forgot-password></app-forgot-password>
+  <div class="row"
+       *ngIf="forgotPassword"
+  >
+    <div class="col-xs-12  col-lg-6 offset-lg-3">
+      <app-forgot-password></app-forgot-password>
+    </div>
   </div>
 </div>
 
-<!--<div class="container-fluid"-->
-     <!--*ngIf="!userAuthorized && !forgotPassword"-->
-<!--&gt;-->
-  <!--<div class="row">-->
-    <!--<div class="col-xs-12  col-lg-6 offset-lg-3">-->
-      <!--<app-material-login-->
-        <!--(forgotPasswordEvent)="forgotPassword = true"-->
-      <!--&gt;</app-material-login>-->
-    <!--</div>-->
-  <!--</div>-->
-<!--</div>-->
 
 
