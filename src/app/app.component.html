@@ -1,4 +1,4 @@
-<app-menu *ngIf="userAuthorized"
+<app-menu *ngIf="!userAuthorized"
           (logoutClick)="userAuthorized = false"
 ></app-menu>
 
@@ -8,7 +8,7 @@
 
 
 <div class="container-fluid"
-     *ngIf="!userAuthorized"
+     *ngIf="userAuthorized"
 >
   <div class="row"
        *ngIf="!forgotPassword"

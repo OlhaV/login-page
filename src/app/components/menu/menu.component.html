@@ -1,36 +1,12 @@
-<div class="menu"
+<nav class="navbar navbar-expand-lg"
 >
-  <a [routerLink]="['']"
-     [routerLinkActive]="['active-link']"
-     [routerLinkActiveOptions]="{exact: true}"
-     class="menu-link"
+  <a *ngFor="let item of _menuItems"
+     [routerLink]="item?.routerLink"
+     [routerLinkActive]="item?.routerLinkActive"
+     [routerLinkActiveOptions]="item.routerLinkActiveOptions"
+     (click)="action"
+     class="nav-link"
   >
-    Home
+    {{item?.value}}
   </a>
-  <a [routerLink]="['about']"
-     [routerLinkActive]="['active-link']"
-     [queryParams]="{'second' : 100}"
-     class="menu-link"
-  >
-    About
-  </a>
-  <a [routerLink]="['order-data']"
-     [routerLinkActive]="['active-link']"
-     class="menu-link"
-  >
-    Order-Data
-  </a>
-  <a [routerLink]="['user', '12']"
-     [routerLinkActive]="['active-link']"
-     class="menu-link"
-  >
-    User
-  </a>
-  <a [routerLink]="['logout']"
-     [routerLinkActive]="['active-link']"
-     (click)="logoutClick.emit()"
-     class="menu-link"
-  >
-    Logout
-  </a>
-</div>
+</nav>
