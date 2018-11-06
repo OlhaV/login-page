@@ -1,5 +1,5 @@
 import {Component, Input, Output, EventEmitter} from '@angular/core';
-import {MenuModel} from "../../models/menu.model";
+import {MenuModel} from "../../../models/menu.model";
 
 @Component({
   selector: 'app-menu',
@@ -49,7 +49,7 @@ export class MenuComponent {
           this.logoutClick.emit();
         }
       },
-    ]
+    ];
   }
 
 }

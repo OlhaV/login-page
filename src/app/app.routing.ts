@@ -1,9 +1,9 @@
 import {Routes, RouterModule} from "@angular/router";
-import {HomeComponent} from "./components/home/home.component";
-import {AboutComponent} from "./components/about/about.component";
+import {HomeComponent} from "./core/components/home/home.component";
+import {AboutComponent} from "./core/components/about/about.component";
 import {NgModule} from "@angular/core";
-import {UnsuccessfulRegistrationComponent} from "./components/unsuccessful-registration/unsuccessful-registration.component";
-import {MaterialLoginComponent} from "./components/material-login/material-login.component";
+import {UnsuccessfulRegistrationComponent} from "./core/components/unsuccessful-registration/unsuccessful-registration.component";
+import {MaterialLoginComponent} from "./core/components/material-login/material-login.component";
 
 const routes: Routes = [
   { path: '', component: HomeComponent },

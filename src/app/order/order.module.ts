@@ -4,11 +4,13 @@ import { OrdersListComponent } from './orders-list/orders-list.component';
 import { OrderDataComponent } from './order-data/order-data.component';
 import { OrderComponent } from './order.component';
 import {OrderRoutingModule} from './order.routing';
+import {SharedAppModule} from '../shared/shared-app.module';
 
 @NgModule({
   imports: [
     CommonModule,
-    OrderRoutingModule
+    OrderRoutingModule,
+    SharedAppModule
   ],
   declarations: [
     OrdersListComponent,

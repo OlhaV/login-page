@@ -3,47 +3,19 @@ import {NgModule} from '@angular/core';
 
 import {AppComponent} from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MaterialLoginComponent} from './components/material-login/material-login.component';
-import {SnackbarMessageComponent} from './components/snackbar-message/snackbar-message.component';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {ButtonModule, GrowlModule, InputTextareaModule, InputTextModule, PasswordModule, RadioButtonModule} from 'primeng/primeng';
-import {MatButtonModule, MatInputModule, MatRadioModule, MatSnackBarModule} from '@angular/material';
-import { AboutComponent } from './components/about/about.component';
-import { HomeComponent } from './components/home/home.component';
-import { AppRoutingModule } from './app.routing';
-import { UnsuccessfulRegistrationComponent } from './components/unsuccessful-registration/unsuccessful-registration.component';
-import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
-import { MenuComponent } from './components/menu/menu.component';
-import { PageNotExistsComponent } from './components/page-not-exists/page-not-exists.component';
+import {SnackbarMessageComponent} from './core/components/snackbar-message/snackbar-message.component';
+import {AppRoutingModule} from './app.routing';
+import {CoreModule} from './core/core.module';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    MaterialLoginComponent,
-    SnackbarMessageComponent,
-    AboutComponent,
-    HomeComponent,
-    UnsuccessfulRegistrationComponent,
-    ForgotPasswordComponent,
-    MenuComponent,
-    PageNotExistsComponent
+    AppComponent
   ],
   imports: [
     AppRoutingModule,
     BrowserModule,
     BrowserAnimationsModule,
-    ReactiveFormsModule,
-    FormsModule,
-    InputTextModule,
-    InputTextareaModule,
-    PasswordModule,
-    RadioButtonModule,
-    ButtonModule,
-    GrowlModule,
-    MatRadioModule,
-    MatButtonModule,
-    MatSnackBarModule,
-    MatInputModule
+    CoreModule
   ],
   providers: [],
   bootstrap: [AppComponent],

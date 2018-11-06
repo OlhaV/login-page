@@ -5,6 +5,7 @@ import {UserEditInfoComponent} from './components/user-edit-info/user-edit-info.
 import {UserDetailsComponent} from './components/user-details/user-details.component';
 import {UserComponent} from './user.component';
 import {UserRoutingModule} from './user.routing';
+import {SharedAppModule} from '../shared/shared-app.module';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import {UserRoutingModule} from './user.routing';
   ],
   imports: [
     CommonModule,
-    UserRoutingModule
+    UserRoutingModule,
+    SharedAppModule
   ]
 })
 export class UserModule { }

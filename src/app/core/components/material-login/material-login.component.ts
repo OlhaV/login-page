@@ -1,8 +1,8 @@
 import {Component, ViewChild, EventEmitter, Output, ElementRef} from '@angular/core';
 import {MatSnackBar} from '@angular/material';
 import {SnackbarMessageComponent} from '../snackbar-message/snackbar-message.component';
-import {UserModel} from "../../models/user-model";
-import {AuthorizationService} from "../../services/authorization.service";
+import {UserModel} from "../../../models/user-model";
+import {AuthorizationService} from "../../../services/authorization.service";
 import {Router} from "@angular/router";
 
 @Component({
