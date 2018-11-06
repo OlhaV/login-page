@@ -29,27 +29,24 @@ export class MenuComponent {
         value: 'About',
         routerLink: ['about'],
         routerLinkActive: ['active-link'],
-        routerLinkActiveOptions: { exact: true },
       },
       {
-        value: 'Order Data',
-        routerLink: ['order-data'],
+        value: 'Order',
+        routerLink: ['order'],
         routerLinkActive: ['active-link'],
         routerLinkActiveOptions: { exact: true },
       },
       {
         value: 'User',
-        routerLink: ['user', '12'],
+        routerLink: ['user', '555'],
         routerLinkActive: ['active-link'],
-        routerLinkActiveOptions: { exact: true },
       },
       {
         value: 'Logout',
         routerLink: ['logout'],
         routerLinkActive: ['active-link'],
-        routerLinkActiveOptions: { exact: true },
         action: () => {
-          this.logoutClick.emit()
+          this.logoutClick.emit();
         }
       },
     ]

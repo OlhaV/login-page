@@ -3,8 +3,6 @@
   <a *ngFor="let item of _menuItems"
      [routerLink]="item?.routerLink"
      [routerLinkActive]="item?.routerLinkActive"
-     [routerLinkActiveOptions]="item.routerLinkActiveOptions"
-     (click)="action"
      class="nav-link"
   >
     {{item?.value}}

@@ -10,15 +10,10 @@ import {ButtonModule, GrowlModule, InputTextareaModule, InputTextModule, Passwor
 import {MatButtonModule, MatInputModule, MatRadioModule, MatSnackBarModule} from '@angular/material';
 import { AboutComponent } from './components/about/about.component';
 import { HomeComponent } from './components/home/home.component';
-import {AppRoutingModule} from "./app.routing";
+import { AppRoutingModule } from './app.routing';
 import { UnsuccessfulRegistrationComponent } from './components/unsuccessful-registration/unsuccessful-registration.component';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
-import { OrderDataComponent } from './components/order-data/order-data.component';
 import { MenuComponent } from './components/menu/menu.component';
-import { UserComponent } from './components/user/user.component';
-import { UserDetailsComponent } from './components/user/user-details/user-details.component';
-import { UserEditInfoComponent } from './components/user/user-edit-info/user-edit-info.component';
-import { UserOrdersComponent } from './components/user/user-orders/user-orders.component';
 import { PageNotExistsComponent } from './components/page-not-exists/page-not-exists.component';
 
 @NgModule({
@@ -30,12 +25,7 @@ import { PageNotExistsComponent } from './components/page-not-exists/page-not-ex
     HomeComponent,
     UnsuccessfulRegistrationComponent,
     ForgotPasswordComponent,
-    OrderDataComponent,
     MenuComponent,
-    UserComponent,
-    UserDetailsComponent,
-    UserEditInfoComponent,
-    UserOrdersComponent,
     PageNotExistsComponent
   ],
   imports: [

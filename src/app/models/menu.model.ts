@@ -3,5 +3,5 @@ export class MenuModel {
   routerLink: string[];
   routerLinkActive: string[];
   routerLinkActiveOptions?: { exact: boolean };
-  action?: () => {};
+  action?: () => void;
 }
